@@ -55,7 +55,7 @@ var saveDescription = function() {
   
   // convert to moment object at 5:00pm
   var time = moment(date, "L").set("hour", 0);
-  
+
   // remove any old classes from element
   $(descriptionEl).removeClass("list-group-item-past list-group-item-present");
   
