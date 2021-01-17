@@ -1,90 +1,24 @@
-var description = {};
+$(document).ready(function() {
+    console.log("ready!");
 
-var createDescription = function(descriptionText, descriptionHour, descriptionList) {
-  // create elements that make up a task item
-  var descriptionLi = $("<li>").addClass("list-group-item");
-  var descriptionSpan = $("<span>")
-    .addClass("badge badge-primary badge-pill")
-    .text(descriptionDate);
-  var descriptionP = $("<p>")
-    .addClass("m-1")
-    .text(descriptionText);
+$("#currentDay").text(
+    moment().format("MMMM Do YYYY")
+);
 
-  // append span and p element to parent li
-  descriptionLi.append(descriptionSpan, descriptionP);
+$(".saveBtn").on("click", function(){
+    var description =$(this).siblings(".description").val()
+    console.log(description);
 
-// append span and p element to parent li
-descriptionLi.append(descriptionSpan, descriptionP);
-
-// check due date
-auditDescription(descriptionLi);
-
-// append to ul list on the page
-$("#list-" + descriptionList).append(descriptionLi);
-};
-
-var loadDescription = function() {
-  description = JSON.parse(localStorage.getItem("description"));
-  
-  // if nothing in localStorage, create a new object to track all task status arrays
-  if (!description) {
-    description = {
-      description: [],
-    };
-  }
-
-  // loop over object properties
-$.each(description, function(list, arr) {
-  // then loop over sub-array
-  arr.forEach(function(description) {
-    createTask(description.text, description.hour, list);
-  });
+    var time =$(this).parent().attr("id")
+    localStorage.setItem(time, description);
 });
-};
 
-var saveDescription = function() {
-  localStorage.setItem("description", JSON.stringify(description));
-  };
-  
-  var auditDescription = function(descriptionEl) {
-  // get date from task element
-  var hour = $(descriptionEl)
-    .find("span")
-    .text()
-    .trim();
-  
-  // convert to moment object at 5:00pm
-  var time = moment(date, "L").set("hour", 0);
+$("#hour-9 .description").val(localStorage.getItem("hour-9"))
+    
 
-  // remove any old classes from element
-  $(descriptionEl).removeClass("list-group-item-past list-group-item-present");
-  
-  // apply new class if task is near/over due date
-  if (moment().isAfter(hour)) {
-    $(descriptionEl).addClass("list-group-item-past");
-  } else if (Math.abs(moment().diff(time, "hour")) <= 0) {
-    $(descriptionEl).addClass("list-group-item-present");
-  }
-  };
 
-  // save button in modal was clicked
-$("#description-form-modal .saveBtn").click(function() {
-  // get form values
-  var descriptionText = $("#modalTaskDescription").val();
-  var descriptionHour = $("#modalDueDate").val();
-  
-  if (descriptionText && descriptionHour) {
-    createTask(descriptionText, descriptionHour, "description");
-  
-    // close modal
-    $("#description-form-modal").modal("hide");
-  
-    // save in tasks array
-    description.push({
-      text: descriptionText,
-      date: descriptionHour
-    });
-  
-    saveTasks();
-  }
-  });
+});
+
+// create a function with conditinal if/else 
+// get current time from moment.js compare current time to the time block
+// add class/ remove class on time block
