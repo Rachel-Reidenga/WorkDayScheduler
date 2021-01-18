@@ -38,13 +38,18 @@ $("#hour-5 .description").val(localStorage.getItem("hour-5"))
         
 
         // // apply new class if hour is past/present/future
-        var time = parseInt(moment().format('H'));
-        console.log(time);
-        // if (moment().isAfter(time)) {
-        // $(".row").addClass(".present");
-        // } else if (Math.abs(moment().diff(time, "days")) <= 2) {
-        // $(".row").addClass(".past");
-        // }
+        var currentTime = (moment().format('LT'));
+        console.log(currentTime);
+        if (currentTime = "p") {
+            $("textarea").addClass(".present");
+        } 
+        else {
+            $("textarea").addClass(".future");
+        }
+            
+        
+
+    
         
 
 
