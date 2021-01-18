@@ -24,38 +24,28 @@ $("#hour-3 .description").val(localStorage.getItem("hour-3"))
 $("#hour-4 .description").val(localStorage.getItem("hour-4"))
 $("#hour-5 .description").val(localStorage.getItem("hour-5"))
 
-// var present = moment(".time-block") <= 9:00:00
 
-// if (".time-block" <= 9) {
-//     $("#row #hour-9") = $("#present")
-// }
 
-// $('#row').display(function() {
-//     if ($('#time').hasClass('9:00')){
-//         $('#time').removeClass('slamdown');
-//     } else {
-//         $('#time').addClass('slamdown');
-//       }
-//     });
+    // var present = moment().format("hh:mm:ss a");
+    // console.log(present);
 
-    var present = moment().format("hh:mm:ss a");
-    console.log(present);
-    
-    // var time = function(timeEl) {
-    //     // get date from task element
-    //     var time = $(timeEl)
-    //       .find("textarea")
-    //       .text()
-    //       .trim();
+        // $("textarea").css("background-color", "#d3d3d3");
         
-    //     // apply new class if hour is near/over time
-        if (moment("09").isSame("09", "hour")) {
-          $(".description").addClass(".present");
-        } else if (moment().diff(time, "hour")) {
-          $(".description").addClass(".past");
-        };
 
-    // console.log(moment("09").isSame("09", "hour"));
+
+    
+
+        
+
+        // // apply new class if hour is past/present/future
+        var time = parseInt(moment().format('H'));
+        console.log(time);
+        // if (moment().isAfter(time)) {
+        // $(".row").addClass(".present");
+        // } else if (Math.abs(moment().diff(time, "days")) <= 2) {
+        // $(".row").addClass(".past");
+        // }
+        
 
 
 });
@@ -63,3 +53,4 @@ $("#hour-5 .description").val(localStorage.getItem("hour-5"))
 // create a function with conditinal if/else 
 // get current time from moment.js compare current time to the time block
 // add class/ remove class on time block
+
