@@ -29,12 +29,9 @@ $("#hour-5 .description").val(localStorage.getItem("hour-5"))
     // var present = moment().format("hh:mm:ss a");
     // console.log(present);
 
-        // $("textarea").css("background-color", "#d3d3d3");
-        
-
-
-    
-
+    $("textarea").css("background-color", "#d3d3d3");
+    $("textarea").css("background-color", "#ff6961");
+    $("textarea").css("background-color", "#77dd77");
         
 
         // // apply new class if hour is past/present/future
@@ -47,11 +44,6 @@ $("#hour-5 .description").val(localStorage.getItem("hour-5"))
             $("textarea").addClass(".future");
         }
             
-        
-
-    
-        
-
 
 });
 
