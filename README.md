@@ -18,7 +18,7 @@ Link to repository on [GitHub](https://github.com/Rachel-Reidenga/WorkDaySchedul
 
 ## Screenshots
 
-![Top of Page] (./projects/Scheduler/screenshots/top.png)
+![Top of Page](./projects/Scheduler/screenshots/top.png)
 
 ![Bottom of Page](./projects/Scheduler/screenshots/bottom.png)
 
